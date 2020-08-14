@@ -1,0 +1,27 @@
+{
+  "name": "voltorb-flip",
+  "version": "0.1.0",
+  "description": "Voltorb Flip module",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "private": true,
+  "scripts": {
+    "build": "./node_modules/.bin/webpack .",
+    "watch": "./node_modules/.bin/webpack . --watch"
+  },
+  "keywords": ["Voltorb Flip", "Voltorb", "Pokemon"],
+  "author": "Dracoctix <dracoctix@outlook.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-syntax-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}
