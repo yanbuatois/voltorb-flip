@@ -1,10 +1,9 @@
 {
-  "name": "voltorb-flip",
+  "name": "@yanbuatois/voltorb-flip",
   "version": "0.1.0",
   "description": "Voltorb Flip module",
   "main": "lib/index.js",
   "module": "src/index.js",
-  "private": true,
   "scripts": {
     "build": "./node_modules/.bin/webpack .",
     "watch": "./node_modules/.bin/webpack . --watch"
