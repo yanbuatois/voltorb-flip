@@ -60,4 +60,8 @@ export default class Memo {
   getSortedArray() {
     return [...this.#set].sort((a, b) => a - b);
   }
+
+  get empty() {
+    return this.#set.size === 0;
+  }
 }

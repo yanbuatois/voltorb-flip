@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import Cell from './Cell.js';
 
 /**
  * @typedef {Object} Indication Indication for row or column
@@ -116,6 +117,22 @@ export default class Grid {
   }
 
   /**
+   * Width of the grid.
+   * @returns {number}
+   */
+  get width() {
+    return this.#width;
+  }
+
+  /**
+   * Height of the grid.
+   * @returns {number}
+   */
+  get height() {
+    return this.#height;
+  }
+
+  /**
    * Generates the cells grid.
    * @returns {Cell[]}
    * @private
@@ -179,7 +196,7 @@ export default class Grid {
    * @returns {Indication}
    */
   getLineIndications(line) {
-    return this._getGroupIndications(this.getLine(line));
+    return this.getGroupIndications(this.getLine(line));
   }
 
   /**
@@ -188,16 +205,15 @@ export default class Grid {
    * @returns {Indication}
    */
   getColumnIndications(column) {
-    return this._getGroupIndications(this.getColumn(column));
+    return this.getGroupIndications(this.getColumn(column));
   }
 
   /**
    * Tells how many coefficients and mines there is in group of cells.
    * @param {Array<Cell>} group Cells on which we need to get indications
    * @returns {Indication}
-   * @private
    */
-  _getGroupIndications(group) {
+  getGroupIndications(group) {
     return group.reduce(({mines, coefficients}, {mine, value}) => ({
       mines: mines + ((mine) ? 1 : 0),
       coefficients: coefficients + value,
@@ -269,7 +285,7 @@ export default class Grid {
    * @returns {Generator<Cell[], void, *>}
    */
   *linesIterator() {
-    for (let index = 0; index < this.#height; ++i) {
+    for (let index = 0; index < this.#height; ++index) {
       yield this.getLine(index);
     }
   }
@@ -279,7 +295,7 @@ export default class Grid {
    * @returns {Generator<Cell[], void, *>}
    */
   *columnsIterator() {
-    for (let index = 0; index < this.#width; ++i) {
+    for (let index = 0; index < this.#width; ++index) {
       yield this.getColumn(index);
     }
   }
