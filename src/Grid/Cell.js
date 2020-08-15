@@ -75,7 +75,8 @@ export default class Cell {
    * @returns {number} The actual value of the uncovered cell. 0 If it's a mine.
    */
   uncover() {
-    this.#covered = true;
+    this.#covered = false;
+    this.memo.clear();
     return this.value;
   }
 };

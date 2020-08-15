@@ -98,6 +98,14 @@ export default class Game {
   }
 
   /**
+   * Maximal coefficient of each cell.
+   * @returns {number}
+   */
+  get maximalCoefficient() {
+    return this.#maximalCoefficient;
+  }
+
+  /**
    * Level of the next grid.
    * @returns {number}
    */
@@ -122,10 +130,11 @@ export default class Game {
     }
     const {grid} = this;
     this.#score += grid.score;
+    this.#level = this.nextLevel;
     this.#grid = new Grid({
       width: this.#width,
       height: this.#height,
-      level: this.nextLevel,
+      level: this.#level,
       maximalCoefficient: this.#maximalCoefficient,
     });
 
